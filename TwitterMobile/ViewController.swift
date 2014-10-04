@@ -169,10 +169,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return CGFloat(baseHight);
     }
     
-    @IBAction func likeTheTweet(sender: AnyObject) {
-        
-        let btn = sender as UIButton
-        if let cell = btn.superview?.superview?.superview as? TweetTableViewCell {
+    @IBAction func didTouchLikeButton(sender: UIButton) {
+    
+        if let cell = sender.superview?.superview?.superview as? TweetTableViewCell {
             
             let tweet = self.tweets![cell.index!]
             if !tweet.favorited {
