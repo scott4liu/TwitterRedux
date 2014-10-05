@@ -10,26 +10,29 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var tagline: UILabel!
+    @IBOutlet weak var screenName: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.nameLabel.text = User.currentUser!.name
+        self.screenName.text = "@" + User.currentUser!.screenname!
+        
+        let layer = self.avatarImageView.layer
+        layer.masksToBounds=true
+        layer.cornerRadius=8.0
+        
+        if let imageURL: String = User.currentUser!.profileImageURL {
+            
+            self.avatarImageView.setImageWithURL(NSURL(string: imageURL))
+            
+        }
+        
+        self.tagline.text = User.currentUser!.tagline
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }

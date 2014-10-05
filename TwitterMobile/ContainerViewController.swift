@@ -15,6 +15,9 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var contentXconstaint: NSLayoutConstraint!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var screenName: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var menuViewXconstraint: NSLayoutConstraint!
     
@@ -49,6 +52,20 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nameLabel.text = User.currentUser!.name
+        self.screenName.text = "@" + User.currentUser!.screenname!
+        
+        let layer = self.avatarImageView.layer
+        layer.masksToBounds=true
+        layer.cornerRadius=8.0
+        
+        if let imageURL: String = User.currentUser!.profileImageURL {
+            
+            self.avatarImageView.setImageWithURL(NSURL(string: imageURL))
+            
+        }
+
         
         timelineVC = mainStoryboard.instantiateViewControllerWithIdentifier("TimelineNavigationController") as UIViewController
         
