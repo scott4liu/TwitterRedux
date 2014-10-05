@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tWF-K3-Qpg">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -27,8 +28,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tPq-fk-tFm" id="u0R-b6-CXk">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ja1-kL-eBe">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ja1-kL-eBe">
                                                     <rect key="frame" x="8" y="19" width="53" height="53"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="53" id="R6P-zC-mPs"/>
                                                         <constraint firstAttribute="height" constant="53" id="qpg-9k-35u"/>
@@ -813,7 +815,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@CNN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23N-8V-bMv">
-                                        <rect key="frame" x="118" y="80" width="45.5" height="18"/>
+                                        <rect key="frame" x="118" y="112" width="45.5" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Khi-BK-xJv"/>
                                         </constraints>
@@ -827,7 +829,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CNN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwC-bV-rqv">
-                                        <rect key="frame" x="118" y="44" width="33" height="20"/>
+                                        <rect key="frame" x="118" y="76" width="33" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="5pe-kr-Exr"/>
                                         </constraints>
@@ -835,14 +837,14 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ig0-rf-epw" userLabel="seperator view 1">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ig0-rf-epw" userLabel="seperator view 1">
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="tix-Iq-ifC"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zLm-c5-npk">
-                                        <rect key="frame" x="20" y="36" width="83" height="83"/>
+                                        <rect key="frame" x="20" y="68" width="83" height="83"/>
                                         <color key="backgroundColor" red="0.33458513229999998" green="0.9609375" blue="0.42123388270000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="83" id="2V7-rA-1eu"/>
@@ -850,31 +852,43 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LG-0P-weA" userLabel="seperator view 3">
-                                        <rect key="frame" x="0.0" y="201" width="320" height="1"/>
+                                        <rect key="frame" x="0.0" y="233" width="320" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="4eP-py-cFG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdV-9b-Ujz" userLabel="seperator view 2">
-                                        <rect key="frame" x="0.0" y="163" width="320" height="1"/>
+                                        <rect key="frame" x="0.0" y="195" width="320" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="3tH-HO-9sV"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tagline" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTa-0m-Ohs">
-                                        <rect key="frame" x="20" y="135" width="292" height="20.5"/>
+                                        <rect key="frame" x="20" y="167" width="292" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOS-zb-kqh">
-                                        <rect key="frame" x="20" y="172" width="292" height="20.5"/>
+                                        <rect key="frame" x="20" y="204" width="292" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Oa-7e-p0z">
+                                        <rect key="frame" x="0.0" y="12" width="320" height="44"/>
+                                        <items>
+                                            <navigationItem title="Profile" id="qCb-0b-ui9">
+                                                <barButtonItem key="leftBarButtonItem" title="Back" id="Zfl-NB-Crs">
+                                                    <connections>
+                                                        <action selector="back:" destination="QbG-0b-Dzd" id="d0q-WI-tvB"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -891,7 +905,7 @@
                                     <constraint firstItem="NwC-bV-rqv" firstAttribute="leading" secondItem="zLm-c5-npk" secondAttribute="trailing" constant="15" id="L55-TH-RJx"/>
                                     <constraint firstItem="NwC-bV-rqv" firstAttribute="top" secondItem="zLm-c5-npk" secondAttribute="top" constant="8" id="Lfh-3X-I5q"/>
                                     <constraint firstItem="uOS-zb-kqh" firstAttribute="top" secondItem="OdV-9b-Ujz" secondAttribute="bottom" constant="8" id="OHF-EO-dfv"/>
-                                    <constraint firstItem="zLm-c5-npk" firstAttribute="top" secondItem="tga-9d-zBZ" secondAttribute="top" constant="36" id="P4i-Z6-AKr"/>
+                                    <constraint firstItem="zLm-c5-npk" firstAttribute="top" secondItem="tga-9d-zBZ" secondAttribute="top" constant="68" id="P4i-Z6-AKr"/>
                                     <constraint firstItem="zLm-c5-npk" firstAttribute="top" secondItem="tga-9d-zBZ" secondAttribute="top" constant="44" id="U3W-aM-gHO"/>
                                     <constraint firstAttribute="width" secondItem="OdV-9b-Ujz" secondAttribute="width" id="UvZ-Ol-7Iu"/>
                                     <constraint firstItem="23N-8V-bMv" firstAttribute="top" secondItem="NwC-bV-rqv" secondAttribute="bottom" constant="16" id="WdS-W4-4r3"/>
@@ -913,11 +927,11 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="olH-ww-bqP"/>
-                                        <exclude reference="Efx-qk-6bt"/>
-                                        <exclude reference="U3W-aM-gHO"/>
                                         <exclude reference="0XR-r7-xDq"/>
                                         <exclude reference="8Gn-iQ-ztV"/>
                                         <exclude reference="o5w-aR-Wvn"/>
+                                        <exclude reference="Efx-qk-6bt"/>
+                                        <exclude reference="U3W-aM-gHO"/>
                                         <exclude reference="3kA-fK-9Pk"/>
                                         <exclude reference="anN-ag-Cvm"/>
                                         <exclude reference="mdl-GM-MEp"/>
@@ -937,6 +951,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="avatarImageView" destination="zLm-c5-npk" id="pc4-f1-isD"/>
+                        <outlet property="backBtnItem" destination="Zfl-NB-Crs" id="r6R-df-56h"/>
                         <outlet property="nameLabel" destination="NwC-bV-rqv" id="vHE-Se-FCE"/>
                         <outlet property="screenName" destination="23N-8V-bMv" id="KuV-Og-307"/>
                         <outlet property="tagline" destination="CTa-0m-Ohs" id="Qs2-Ep-ZUY"/>

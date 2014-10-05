@@ -14,25 +14,45 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var backBtnItem: UIBarButtonItem!
+    
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if User.currentUser?.current_Tweet != nil {
+            self.user = User.currentUser?.current_Tweet!.user
+        } else {
+            self.user = User.currentUser!
+            self.backBtnItem.title = ""
+            self.backBtnItem.width = 0
+        }
+        
 
-        self.nameLabel.text = User.currentUser!.name
-        self.screenName.text = "@" + User.currentUser!.screenname!
+        self.nameLabel.text = user.name
+        self.screenName.text = "@" + user.screenname!
         
         let layer = self.avatarImageView.layer
         layer.masksToBounds=true
         layer.cornerRadius=8.0
         
-        if let imageURL: String = User.currentUser!.profileImageURL {
+        if let imageURL: String = user.profileImageURL {
             
             self.avatarImageView.setImageWithURL(NSURL(string: imageURL))
             
         }
         
-        self.tagline.text = User.currentUser!.tagline
+        self.tagline.text = user.tagline
+        
+        //clear
+        User.currentUser?.current_Tweet = nil
         
     }
 
   
+    @IBAction func back(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

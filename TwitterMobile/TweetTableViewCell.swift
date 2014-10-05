@@ -78,8 +78,7 @@ class TweetTableViewCell: UITableViewCell {
             self.topSpaceConstraint.constant = 3
             dispalyTweet(tweet)
         }
-        
-        
+       
         showFavoriteBtn(tweet)
         
         showRetweetBtn(tweet)

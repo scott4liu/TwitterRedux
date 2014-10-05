@@ -72,11 +72,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
  
+    func didTab(sender: UITapGestureRecognizer) {
+        
+        if let index = sender.view?.tag {
+            
+            //println(index)
+            
+            User.currentUser?.current_Tweet = tweets?[index]
+            
+            let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
+            self.presentViewController(profileVC, animated: true, completion: nil)
+            
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as TweetTableViewCell
         
         if let tweet = tweets?[indexPath.row] {
-            
             cell.tweet = tweet
             
             //infinite scroll
@@ -85,6 +98,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 loadHomeTimeline(parameters)
             }
         }
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: "didTab:");
+        singleTap.numberOfTapsRequired = 1;
+        cell.avatarImageView.addGestureRecognizer(singleTap);
+        cell.avatarImageView.tag = indexPath.row
         
         return cell
     }
@@ -151,6 +169,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    
+
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let tweet = tweets?[indexPath.row] {
