@@ -22,6 +22,7 @@
 		7A8C084F19D69B2A00E7FBC6 /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8C084E19D69B2A00E7FBC6 /* NewTweetViewController.swift */; };
 		7A8C085119D7101000E7FBC6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8C085019D7101000E7FBC6 /* Tweet.swift */; };
 		7AAABB7B19DF9FCE009FC757 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAABB7A19DF9FCE009FC757 /* ContainerViewController.swift */; };
+		7AAABB7D19E0BD93009FC757 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAABB7C19E0BD93009FC757 /* ProfileViewController.swift */; };
 		7AF47B7A19D7C886005E3BFE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF47B7319D7C886005E3BFE /* Default-568h@2x.png */; };
 		7AF47B7B19D7C886005E3BFE /* like_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF47B7419D7C886005E3BFE /* like_off.png */; };
 		7AF47B7C19D7C886005E3BFE /* like_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF47B7519D7C886005E3BFE /* like_on.png */; };
@@ -63,6 +64,7 @@
 		7A8C084E19D69B2A00E7FBC6 /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTweetViewController.swift; path = TwitterMobile/NewTweetViewController.swift; sourceTree = "<group>"; };
 		7A8C085019D7101000E7FBC6 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		7AAABB7A19DF9FCE009FC757 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = TwitterMobile/ContainerViewController.swift; sourceTree = "<group>"; };
+		7AAABB7C19E0BD93009FC757 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7AF47B7319D7C886005E3BFE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7AF47B7419D7C886005E3BFE /* like_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_off.png; sourceTree = "<group>"; };
 		7AF47B7519D7C886005E3BFE /* like_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_on.png; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				7A8C084E19D69B2A00E7FBC6 /* NewTweetViewController.swift */,
 				7A8C082119D6268500E7FBC6 /* ViewController.swift */,
 				7A8C081F19D6268500E7FBC6 /* AppDelegate.swift */,
+				7AAABB7C19E0BD93009FC757 /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			path = ..;
@@ -365,6 +368,7 @@
 				7A8C082219D6268500E7FBC6 /* ViewController.swift in Sources */,
 				7A8C085119D7101000E7FBC6 /* Tweet.swift in Sources */,
 				7A8C084919D6943C00E7FBC6 /* User.swift in Sources */,
+				7AAABB7D19E0BD93009FC757 /* ProfileViewController.swift in Sources */,
 				7A8C084B19D6966600E7FBC6 /* TweetViewController.swift in Sources */,
 				7A8C084F19D69B2A00E7FBC6 /* NewTweetViewController.swift in Sources */,
 				7A8C084419D6331300E7FBC6 /* TwitterClient.swift in Sources */,

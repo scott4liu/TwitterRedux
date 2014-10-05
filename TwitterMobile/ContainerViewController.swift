@@ -18,6 +18,9 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var menuViewXconstraint: NSLayoutConstraint!
     
+    var timelineVC: UIViewController!
+    var profileVC: UIViewController!
+    
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     var activeViewController: UIViewController? {
@@ -42,19 +45,37 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate {
     
 
     
+    @IBOutlet weak var timelineBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.menuViewXconstraint.constant -= 260
-        self.contentView.layer.zPosition = 10
-        let nav = mainStoryboard.instantiateViewControllerWithIdentifier("TimelineNavigationController") as UIViewController
-
-     
-        self.contentXconstaint.constant = 0
-        self.activeViewController = nav
-        // Do any additional setup after loading the view.
+        
+        timelineVC = mainStoryboard.instantiateViewControllerWithIdentifier("TimelineNavigationController") as UIViewController
+        
+        profileVC = mainStoryboard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
+        
+        showContent(timelineVC)
     }
     
-    /*
+    func showContent(vc: UIViewController) {
+        
+        self.menuViewXconstraint.constant -= 260
+        self.contentView.layer.zPosition = 10
+        self.contentXconstaint.constant = 0
+        self.activeViewController = vc
+
+    }
+    
+    @IBAction func showHomeTimeline(sender: UIButton) {
+        showContent(self.timelineVC)
+    }
+    
+    @IBAction func showProfile(sender: AnyObject) {
+        
+       showContent(self.profileVC)
+    }
+    
+    
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         //println(touch)
         let location = touch.locationInView(self.contentView)
@@ -63,10 +84,8 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate {
             } else {
                 return false
             }
-        
-        
     }
-    */
+
 
     @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
         
@@ -84,7 +103,7 @@ class ContainerViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             else if sender.direction == UISwipeGestureRecognizerDirection.Left {
                 
-                UIView.animateWithDuration(1, animations: { () -> Void in
+                UIView.animateWithDuration(0.35, animations: { () -> Void in
                     self.contentXconstaint.constant = 0
                     self.view.layoutIfNeeded()
                     }, completion: { (Bool) -> Void in
