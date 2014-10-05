@@ -71,47 +71,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         TwitterClient.sharedInstance.logout()
         
     }
-    
-    func dispalyTweet(cell: TweetTableViewCell, tweet: Tweet){
-        
-        cell.tweetText.text = tweet.text
-        
-        cell.nameLabel.text = tweet.user?.name
-        cell.screenName.text = "@" + tweet.user!.screenname!
-        
-        let layer = cell.avatarImageView.layer
-        layer.masksToBounds=true
-        layer.cornerRadius=8.0
-        
-        if let imageURL: String = tweet.user?.profileImageURL {
-            
-            cell.avatarImageView.setImageWithURL(NSURL(string: imageURL))
-            
-        }
-
-    }
-    
+ 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as TweetTableViewCell
         
         if let tweet = tweets?[indexPath.row] {
             
-            if tweet.retweeted_status != nil {
-                cell.reTweetBy.text = "@" + tweet.user!.screenname!+" retweeted"
-                cell.topSpaceConstraint.constant = 18
-                dispalyTweet(cell, tweet: tweet.retweeted_status!)
-            } else {
-                cell.reTweetBy.text = ""
-                cell.topSpaceConstraint.constant = 3
-                dispalyTweet(cell, tweet: tweet)
-            }
-            
-            
-            showFavoriteBtn(cell, tweet:tweet)
-            
-            showRetweetBtn(cell, tweet:tweet)
-            
-            cell.timeLabel.text = tweet.timeIntervalAsStr
+            cell.tweet = tweet
             
             //infinite scroll
             if (indexPath.row == (self.tweets!.count-1) ) {
@@ -119,32 +85,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 loadHomeTimeline(parameters)
             }
         }
-
-        //cell.selectionStyle = UITableViewCellSelectionStyle.None
-        cell.index = indexPath.row
         
         return cell
     }
-    
-    func showRetweetBtn(cell: TweetTableViewCell, tweet: Tweet){
-        if (tweet.retweeted) {
-            cell.retweetButton.setImage(image_retweet_on, forState: .Normal)
-        } else {
-            cell.retweetButton.setImage(image_retweet_off, forState: .Normal)
-        }
-        
-        cell.retweetButton.setTitle(" "+String(tweet.retweet_count ?? 0), forState: .Normal)
-    }
-    
-    func showFavoriteBtn(cell: TweetTableViewCell, tweet: Tweet){
-        if (tweet.favorited) {
-            cell.favoriteButton.setImage(image_favorite_on, forState: .Normal)
-        } else {
-            cell.favoriteButton.setImage(image_favorite_off, forState: .Normal)
-        }
-        cell.favoriteButton.setTitle(" "+String(tweet.favorite_count ?? 0), forState: .Normal)
-    }
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.tweets != nil) {
@@ -173,20 +116,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
         if let cell = sender.superview?.superview?.superview as? TweetTableViewCell {
             
-            let tweet = self.tweets![cell.index!]
+            let tweet = cell.tweet
             if !tweet.favorited {
                 tweet.favorite()
             } else {
                 tweet.unfavorite()
             }
-            showFavoriteBtn(cell, tweet:tweet)
+            cell.showFavoriteBtn(tweet)
         }
     }
     
     @IBAction func replyToTweet(sender: AnyObject) {
         let btn = sender as UIButton
         if let cell = btn.superview?.superview?.superview as? TweetTableViewCell {
-            let tweet = self.tweets![cell.index!]
+            let tweet = cell.tweet
             
             User.currentUser?.current_Tweet = tweet
             
@@ -199,10 +142,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let btn = sender as UIButton
         if let cell = btn.superview?.superview?.superview as? TweetTableViewCell {
             
-            let tweet = self.tweets![cell.index!]
+            let tweet = cell.tweet
             if !tweet.retweeted {
                 tweet.reTweet()
-                showRetweetBtn(cell, tweet:tweet)
+                cell.showRetweetBtn(tweet)
             }
         }
         
