@@ -91,6 +91,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     {
         self.GET("1.1/account/verify_credentials.json", parameters: nil,
             success: { (operation: AFHTTPRequestOperation!, response) -> Void in
+                println(response)
                 let user = User(dictionary: response as NSDictionary)
                 User.currentUser = user
                 NSNotificationCenter.defaultCenter().postNotificationName(userDidLoginNotification, object: nil)

@@ -21,6 +21,8 @@ class User: NSObject {
     var friends_count: Int = 0
     var statuses_count: Int = 0
     
+    var profile_banner_url: String?
+    
     var current_Tweet: Tweet?
     
     init(dictionary: NSDictionary) {
@@ -28,6 +30,7 @@ class User: NSObject {
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
         profileImageURL = dictionary["profile_image_url"] as? String
+        profile_banner_url = dictionary["profile_banner_url"] as? String
         tagline = dictionary["description"] as? String
         followers_count = dictionary["followers_count"] as Int
         friends_count = dictionary["friends_count"] as Int
